@@ -2,4 +2,4 @@ venv/
 __pycache__/
 *.pyc
 labels.csv
-.DS_Store
+.DS_Storelabels/

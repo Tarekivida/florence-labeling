@@ -16,7 +16,7 @@ All labels are exported to a CSV file (`labels.csv`) with full file paths and pr
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/florence-labeling.git
+git clone https://github.com/Tarekivida/florence-labeling.git
 cd florence-labeling
 ```
 
@@ -45,7 +45,7 @@ The script will:
 - Ask you to choose a labeling mode
 - Recursively find all images in the folder and subfolders
 - Label each image using Florence-2
-- Save output in `labels.csv`
+- Save output in the `labels/` directory as a CSV file named like `DETAILED_myfolder.csv` or `OD_foldername.csv` depending on the mode selected
 
 ---
 
@@ -75,7 +75,8 @@ florence-labeling/
 ├── main.py
 ├── requirements.txt
 ├── README.md
-└── labels.csv  ← Generated after running the script
+├── labels/                ← Output CSVs are saved here
+│   └── DETAILED_myimages.csv
 ```
 
 ---

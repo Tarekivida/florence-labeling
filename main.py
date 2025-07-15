@@ -56,8 +56,14 @@ def process_image(image_path):
             num_beams=3,
         )
 
-    text = processor.batch_decode(out_ids, skip_special_tokens=False)[0]
-    return text
+    raw_text = processor.batch_decode(out_ids, skip_special_tokens=False)[0]
+
+    if prompt == "<OD>":
+        import re
+        tokens = re.findall(r'([a-zA-Z ]+)<loc_\d+>', raw_text)
+        return ", ".join(sorted(set(token.strip() for token in tokens if token.strip())))
+    else:
+        return processor.decode(out_ids[0], skip_special_tokens=True)
 
 def main():
     if len(sys.argv) != 2:
@@ -65,7 +71,14 @@ def main():
         sys.exit(1)
 
     folder_path = sys.argv[1]
-    output_file = "labels.csv"
+    os.makedirs("labels", exist_ok=True)
+    folder_name = os.path.basename(os.path.normpath(folder_path))
+    prompt_label = (
+        "OD" if prompt == "<OD>" else
+        "DETAILED" if prompt == "<DETAILED_CAPTION>" else
+        "MORE_DETAILED"
+    )
+    output_file = os.path.join("labels", f"{prompt_label}_{folder_name}.csv")
 
     with open(output_file, mode="w", newline="") as csvfile:
         writer = csv.writer(csvfile)
