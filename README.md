@@ -97,4 +97,4 @@ MIT License — feel free to use, modify, and contribute.
 
 ## 🙏 Credits
 
-Built with [Hugging Face Transformers](https://huggingface.co/docs/transformers), [Microsoft Florence-2](https://huggingface.co/microsoft/Florence-2-base), and ❤️ by [YOUR NAME].
+Built with [Hugging Face Transformers](https://huggingface.co/docs/transformers), [Microsoft Florence-2](https://huggingface.co/microsoft/Florence-2-base), and ❤️ by Tarek Aghenda.
