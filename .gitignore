@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 labels.csv
 .DS_Storelabels/
+.DS_Store
